@@ -9,11 +9,18 @@ i32 = int
 u64 = int
 i64 = int
 
+class Packet:
+    pass
+
 @dataclass
 class Protocol:
     packet: Packet
-class Packet:
-    pass
+
+@dataclass
+class A1Meta:
+    name: str
+    version: u16
+    payload: list[u8]
 
 class Packet_A1(Packet, tuple[A1Meta]):
 
@@ -31,8 +38,3 @@ class Packet_A1(Packet, tuple[A1Meta]):
 
     def __repr__(self) -> str:
         return super().__repr__()
-@dataclass
-class A1Meta:
-    name: str
-    version: u16
-    payload: list[u8]
